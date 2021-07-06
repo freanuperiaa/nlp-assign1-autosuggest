@@ -15,6 +15,17 @@
             .textpred-cointainer {
                 margin-top: 10%;
             }
+
+            .result {
+                margin-top: 5%;
+            }
+
+            .predicted-word {
+                font-size: 24px;
+                font-style: italic;
+                font-weight: 400;
+            }
+
         </style>
     </head>
 
@@ -23,13 +34,24 @@
             <p class="title">Text Prediction using NLTK Maximum Likelihood Estimate(MLE) model</p>
             <div class="row justify-content-center">
                 <div class="col-lg-8 textpred-cointainer">
-                    <form>
+                    <form action="#" method="post">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Input text</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter words">
+                          <input type="text" class="form-control" id="exampleInputEmail1" name="sentence" aria-describedby="emailHelp" placeholder="Enter words">
                           <small id="emailHelp" class="form-text text-muted">Type something and we'll predict the next word based on the model.</small>
                         </div>
+                        <button class="btn-primary my-button" type="submit" value="submit">Predict</button>
                       </form>
+                      
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="result">
+                        <p class="result-title">Predicted word:</p>
+                        <p class="predicted-word">{{predicted_word}}</p>
+                    </div>
                 </div>
             </div>
         </div>
