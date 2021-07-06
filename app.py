@@ -8,13 +8,14 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def home():
     if request.method == "GET":
-        return render_template('home.html')
+        return render_template('home.html', predicted_word = "")
     
     if request.method == "POST":
-        print(request.form)
         sentence = request.form['sentence']
-        print(sentence)
-        return render_template('home.html')
+        words_list = sentence.split()
+        predicted_text = language_model.predict(words_list)
+        print(predicted_text)
+        return render_template('home.html', predicted_word=predicted_text, input_text=sentence)
 
 if __name__ == '__main__':
     app.run(debug=True)
